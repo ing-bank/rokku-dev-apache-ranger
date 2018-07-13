@@ -15,4 +15,4 @@ script:
 - cd $BUILDFOLDER; 
   echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin; 
   docker pull nielsdenissen/$BUILDFOLDER:latest;
-  docker build -t nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH .;
+  docker build --quiet -t nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH .;
