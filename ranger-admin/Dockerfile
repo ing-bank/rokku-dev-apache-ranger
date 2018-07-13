@@ -29,6 +29,23 @@ ENV RANGER_HOME=/opt/ranger-${RANGER_VERSION}-admin
 
 COPY install.properties ${RANGER_HOME}
 
+# Additions by DAP team to enable adding S3 policies
+RUN apt-get install -y net-tools && \
+    cd /tmp && \
+    git clone https://github.com/bolkedebruin/rangers3plugin.git && \
+    cd rangers3plugin && \
+    mvn package -DskipTests && \
+    mkdir -p ${RANGER_HOME}/ews/webapp/WEB-INF/classes/ranger-plugins/s3/ && \
+    mv /tmp/rangers3plugin/target/ranger-s3-plugin-1.0-SNAPSHOT.jar ${RANGER_HOME}/ews/webapp/WEB-INF/classes/ranger-plugins/s3/ && \
+    cd /root && \
+    rm -rf /tmp/rangers3plugin
+
+COPY ranger-servicedef-s3.json /tmp
+COPY setup-ranger.sh /tmp
+COPY entrypoint.sh /tmp
+
+RUN chmod 777 -R /tmp
+
 EXPOSE 6080
 
-ENTRYPOINT ["/opt/ranger-entrypoint.sh"]
+ENTRYPOINT ["sh", "-c", "/tmp/entrypoint.sh"]
