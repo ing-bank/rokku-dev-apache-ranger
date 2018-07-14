@@ -12,7 +12,7 @@ env:
   - secure: nERQorFRhv/79GLDQcBel17pWY/lvbkbkA1irU+/B+zQBe4BtPLdAe3eclE5zeHmeBYU8tHYFiIprA2UG/R1OqnoL4toLMt8/Z2N98gbD3Ie8PEeeEWcu6e4PQqJieHgPNfE8hRJw4heM07Tsvc+xBnv0uuWS9m65OP2DLuizg2t4dsQ+Vhq2Gk8jQqfAQOtfZU7Xq8H3X4OoJuH1dREqVQJjlEm4Ez1trh5tYk/x0j6ehPa5q6LjFqpKLsXXS3Lj0/JehsZYB0pHIy9D8hm58yGm5fBoZ/RBRfOSo/wZt2IkFjZafBho5J4F5jjdT1HuC28rvxKJ7NOeFqCQJfj9FypRnIuzoASplUiCnvzqJbMwlRofBX/nF5ftxVkNfqCZisNu15j1v24Qcg9hqYm2dw1qmg8uGgL3wtZGaHM0AHIP/bP9B1xQPE3PM+xZ7hzYhOyJ/kKADlaAmk65WOr1+tCcM/owixHAImVhZOm3cnGvjlAzWYWTmzU18nfoxTa49DZv0KpcSXWDR8XrYZFN6s3hhmy77EOAtt0CUG+NO3CIPLNMq0afuKj56wQz/blBkwVayTo7Mf/fLZJRjWRCl9dmHPSZofQyrI2aqg9q/O14GsDx5rcrnmDRglLeOUQ1UFDapMV7NmZeUX0j4pI0EBUWtZ8iW5UOrmhR7i2pDg=
 
 script:
-- travis_wait cd $BUILDFOLDER; 
-  echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin; 
-  docker pull nielsdenissen/$BUILDFOLDER:latest;
-  docker build --quiet -t nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH .;
+- cd $BUILDFOLDER
+- echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+- docker pull nielsdenissen/$BUILDFOLDER:latest
+- travis_wait docker build --quiet -t nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH .
