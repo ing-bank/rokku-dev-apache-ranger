@@ -1,3 +1,9 @@
+[![Build Status](https://travis-ci.org/nielsdenissen/ranger-for-gargoyle.svg?branch=master)](https://travis-ci.org/nielsdenissen/ranger-for-gargoyle)
+[![](https://images.microbadger.com/badges/image/nielsdenissen/ranger-admin:master.svg)](https://microbadger.com/images/nielsdenissen/ranger-admin:master)(ranger-admin)
+[![](https://images.microbadger.com/badges/image/nielsdenissen/ranger-postgres:master.svg)](https://microbadger.com/images/nielsdenissen/ranger-postgres:master)(ranger-postgres)
+
+
+
 # Ranger for Gargoyle
 
 *Based off the following GitHub repo: https://github.com/coheigea/testcases/tree/master/apache/docker/ranger*
