@@ -43,6 +43,8 @@ RUN apt-get install -y net-tools && \
 COPY ranger-servicedef-s3.json /tmp
 COPY setup-ranger.sh /tmp
 COPY entrypoint.sh /tmp
+COPY log4j.xml /opt/ranger-1.0.0-admin/ews/webapp/WEB-INF/log4j.xml
+COPY log4j.properties /opt/ranger-1.0.0-admin/ews/webapp/WEB-INF/log4j.properties
 
 RUN chmod 777 -R /tmp
 

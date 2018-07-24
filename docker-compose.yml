@@ -1,0 +1,14 @@
+version: "2"
+services:
+  postgres-server:
+    image: nielsdenissen/ranger-postgres
+    ports:
+      - "5432:5432"
+  ranger-admin:
+    image: nielsdenissen/ranger-admin
+    stdin_open: true
+    tty: true
+    depends_on:
+      - "postgres-server"
+    ports:
+      - "6080:6080"
