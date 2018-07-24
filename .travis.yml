@@ -15,4 +15,5 @@ script:
 - cd $BUILDFOLDER
 - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 - docker pull nielsdenissen/$BUILDFOLDER:latest;
-  travis_wait 60 docker build --quiet -t nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH .
+  travis_wait 60 docker build --quiet -t nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH .;
+  docker push nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH

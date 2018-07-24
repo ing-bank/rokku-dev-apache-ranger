@@ -7,7 +7,6 @@ This is a project for **TESTING** purposes. Currently the changes made to the de
 - Add service definition at runtime for s3
 - Set logging of ranger service to debug (you can find the logs in the container here: `/opt/ranger-1.0.0-admin/ews/logs/ranger-admin-*-.log`)
 
-
 ## How to run
 
 `docker-compose up`
