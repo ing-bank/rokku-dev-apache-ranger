@@ -20,14 +20,14 @@ done
 # Setup ranger servicedefs
 printf "Creating service definition... \n"
 curl -u admin:admin -d "@/tmp/resources/servicedef/ranger-servicedef-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/servicedef
-printf "\nService definition created"
+printf "\nService definition created\n"
 
 # Setup ranger services
 printf "Creating service... \n"
 curl -u admin:admin -d "@/tmp/resources/service/ranger-service-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/service
-echo "\nService created"
+printf "\nService created\n"
 
 # Setup ranger policies
 printf "Creating policy... \n"
 curl -u admin:admin -d "@/tmp/resources/policy/ranger-policy-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/policy
-echo "\nPolicy created"
+printf "\nPolicy created\n"
