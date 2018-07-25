@@ -4,7 +4,7 @@
     "description": "FOR TESTING PURPOSES, allow all access to demobucket for a test user",
     "isAuditEnabled": true,
     "resources": {
-      "bucket": {
+      "path": {
         "values": [
           "demobucket"
         ],

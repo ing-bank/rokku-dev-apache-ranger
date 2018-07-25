@@ -9,8 +9,8 @@
     [
       {
         "itemId": 1,
-        "name": "bucket",
-        "type": "bucket",
+        "name": "path",
+        "type": "path",
         "level": 10,
         "parent": "",
         "mandatory": true,

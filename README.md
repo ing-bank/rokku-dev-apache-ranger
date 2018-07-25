@@ -20,3 +20,7 @@ This is a project for **TESTING** purposes. Currently the changes made to the de
 ## Dependencies
 
 - s3 plugin for Ranger: https://github.com/bolkedebruin/rangers3plugin.git
+
+## TODO
+
+- Create specific ResourceMatchers in ranger for buckets/pseudopaths/objects (currently we only support paths using the existing RangerPathResourceMatcher)

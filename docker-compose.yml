@@ -30,5 +30,6 @@ services:
       - RGW_CIVETWEB_PORT=8010
       - NETWORK_AUTO_DETECT=4
     ports:
+      - 5000:5000
       - 8010:8010
     command: demo
