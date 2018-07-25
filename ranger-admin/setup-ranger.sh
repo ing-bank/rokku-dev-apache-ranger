@@ -17,5 +17,17 @@ while netstat -lnt | awk '$4 ~ /:6080$/ {exit 1}'; do
     fi
 done
 
-curl -u admin:admin -d "@/tmp/ranger-servicedef-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/servicedef
-echo "s3 servicedef created"
+# Setup ranger servicedefs
+printf "Creating service definition... \n"
+curl -u admin:admin -d "@/tmp/resources/servicedef/ranger-servicedef-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/servicedef
+printf "\nService definition created"
+
+# Setup ranger services
+printf "Creating service... \n"
+curl -u admin:admin -d "@/tmp/resources/service/ranger-service-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/service
+echo "\nService created"
+
+# Setup ranger policies
+printf "Creating policy... \n"
+curl -u admin:admin -d "@/tmp/resources/policy/ranger-policy-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/policy
+echo "\nPolicy created"

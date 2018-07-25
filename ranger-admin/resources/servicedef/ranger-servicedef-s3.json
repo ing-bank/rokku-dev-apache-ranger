@@ -1,8 +1,7 @@
 {
     "name": "s3",
-    "label": "S3 buckets and files",
-    "description": "S3 buckets and files",
-    "guid": "e7855785-afff-4e3e-94e1-a2fe2d726a7f",
+    "label": "S3 buckets and objects",
+    "description": "S3 buckets and objects",
     "implClass": "com.ing.ranger.s3.RangerServiceS3",
     "version": 1,
     "isEnabled": 1,
@@ -10,8 +9,8 @@
     [
       {
         "itemId": 1,
-        "name": "path",
-        "type": "path",
+        "name": "bucket",
+        "type": "bucket",
         "level": 10,
         "parent": "",
         "mandatory": true,
@@ -41,16 +40,6 @@
       },
       {
         "itemId": 3,
-        "name": "read_acp",
-        "label": "Read ACL"
-      },
-      {
-        "itemId": 4,
-        "name": "write_acp",
-        "label": "Write ACL"
-      },
-      {
-        "itemId": 5,
         "name": "full_control",
         "label": "Full control over bucket"
       }
@@ -76,7 +65,7 @@
         "mandatory": true,
         "validationRegEx": "",
         "validationMessage": "",
-        "uiHint": "",
+        "uiHint": "Point to path /admin",
         "label": "S3 Endpoint"
       },
       {
