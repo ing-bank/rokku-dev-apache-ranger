@@ -17,6 +17,12 @@ while netstat -lnt | awk '$4 ~ /:6080$/ {exit 1}'; do
     fi
 done
 
+# Setup ranger users/groups
+printf "Creating user and group definition... \n"
+curl -u admin:admin -d "@/tmp/resources/user-group/testgroup.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/xusers/secure/groups
+curl -u admin:admin -d "@/tmp/resources/user-group/testuser.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/xusers/secure/users
+printf "\nUser and group created\n"
+
 # Setup ranger servicedefs
 printf "Creating service definition... \n"
 curl -u admin:admin -d "@/tmp/resources/servicedef/ranger-servicedef-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/servicedef

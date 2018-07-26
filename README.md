@@ -12,6 +12,8 @@ This is a project for **TESTING** purposes. Currently the changes made to the de
 - Add service definition/service/policy at runtime for s3
 - Set logging of ranger service to debug (you can find the logs in the container here: `/opt/ranger-1.0.0-admin/ews/logs/ranger-admin-*-.log`)
 
+Possible commands for Ranger API: https://www.mail-archive.com/user@ranger.incubator.apache.org/msg00064.html
+
 ## How to run
 
 - Optional: `docker-compose build` (otherwise it will use the images available on docker-hub)

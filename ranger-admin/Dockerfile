@@ -17,14 +17,14 @@ WORKDIR /opt
 # TODO: Tried to do some cleanup here, but that removes some necessary plugins
 RUN apt-get -q update && apt-get install -y -q python gcc \
  && tar zxvf apache-ranger-${RANGER_VERSION}.tar.gz \
-#  && rm -f apache-ranger-${RANGER_VERSION}.tar.gz \
+ && rm -f apache-ranger-${RANGER_VERSION}.tar.gz \
  && cd apache-ranger-${RANGER_VERSION} \
  && mvn package assembly:assembly -DskipTests \
  && cp target/ranger-${RANGER_VERSION}-admin.tar.gz /opt \
 #  && mvn clean \
  && cd /opt \
  && tar zxvf ranger-${RANGER_VERSION}-admin.tar.gz \
-#  && rm -f ranger-${RANGER_VERSION}-admin.tar.gz \
+ && rm -f ranger-${RANGER_VERSION}-admin.tar.gz \
  && chmod +x /opt/ranger-entrypoint.sh
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
