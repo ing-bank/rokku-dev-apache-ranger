@@ -1,0 +1,58 @@
+{
+  "service": "testservice",
+  "name": "testpolicy",
+  "description": "FOR TESTING PURPOSES, allow all access to demobucket for a test user",
+  "isAuditEnabled": true,
+  "resources": {
+    "path": {
+      "values": [
+        "demobucket"
+      ],
+      "isExcludes": false,
+      "isRecursive": true
+    }
+  },
+  "policyItems": [
+    {
+      "accesses": [
+        {
+          "type": "read",
+          "isAllowed": true
+        }
+      ],
+      "users": [
+        "testuser"
+      ],
+      "groups": [
+        "testgroup"
+      ],
+      "conditions": [],
+      "delegateAdmin": false
+    }
+  ],
+  "denyPolicyItems": [
+    {
+      "accesses": [
+        {
+          "type": "write",
+          "isAllowed": true
+        }
+      ],
+      "users": [
+        "testuser"
+      ],
+      "groups": [
+        "testgroup"
+      ],
+      "conditions": [],
+      "delegateAdmin": false
+    }
+  ],
+  "allowExceptions": [],
+  "denyExceptions": [],
+  "dataMaskPolicyItems": [],
+  "rowFilterPolicyItems": [],
+  "policyLabels": [],
+  "isEnabled": true,
+  "version": 1
+}

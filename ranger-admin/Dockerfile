@@ -7,21 +7,24 @@ LABEL version=1.0.0
 
 ARG RANGER_VERSION=1.0.0
 
-ADD https://jdbc.postgresql.org/download/postgresql-42.2.1.jar /opt
-
-ADD http://mirrors.whoishostingthis.com/apache/ranger/${RANGER_VERSION}/apache-ranger-${RANGER_VERSION}.tar.gz /opt
+RUN curl https://jdbc.postgresql.org/download/postgresql-42.2.1.jar -o /opt/postgresql-42.2.1.jar && \
+    curl http://mirrors.whoishostingthis.com/apache/ranger/${RANGER_VERSION}/apache-ranger-${RANGER_VERSION}.tar.gz -o /opt/apache-ranger-${RANGER_VERSION}.tar.gz
 
 COPY ranger-entrypoint.sh /opt
 
 WORKDIR /opt
 
+# TODO: Tried to do some cleanup here, but that removes some necessary plugins
 RUN apt-get -q update && apt-get install -y -q python gcc \
  && tar zxvf apache-ranger-${RANGER_VERSION}.tar.gz \
+ && rm -f apache-ranger-${RANGER_VERSION}.tar.gz \
  && cd apache-ranger-${RANGER_VERSION} \
  && mvn package assembly:assembly -DskipTests \
  && cp target/ranger-${RANGER_VERSION}-admin.tar.gz /opt \
+#  && mvn clean \
  && cd /opt \
  && tar zxvf ranger-${RANGER_VERSION}-admin.tar.gz \
+ && rm -f ranger-${RANGER_VERSION}-admin.tar.gz \
  && chmod +x /opt/ranger-entrypoint.sh
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
@@ -37,10 +40,11 @@ RUN apt-get install -y net-tools && \
     mvn package -DskipTests && \
     mkdir -p ${RANGER_HOME}/ews/webapp/WEB-INF/classes/ranger-plugins/s3/ && \
     mv /tmp/rangers3plugin/target/ranger-s3-plugin-1.0-SNAPSHOT.jar ${RANGER_HOME}/ews/webapp/WEB-INF/classes/ranger-plugins/s3/ && \
+    mvn clean && \
     cd /root && \
     rm -rf /tmp/rangers3plugin
 
-COPY ranger-servicedef-s3.json /tmp
+COPY resources /tmp/resources
 COPY setup-ranger.sh /tmp
 COPY entrypoint.sh /tmp
 COPY log4j.xml /opt/ranger-1.0.0-admin/ews/webapp/WEB-INF/log4j.xml
