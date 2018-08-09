@@ -20,7 +20,7 @@ services:
 
   # Added Ceph to verify the connection of ranger with Ceph for discovering Buckets when creating Policies
   ceph:
-    image: ceph/daemon
+    image: ceph/daemon:v3.0.5-stable-3.0-luminous-centos-7
     environment:
       - CEPH_DEMO_UID=ceph-admin
       - CEPH_DEMO_ACCESS_KEY=accesskey
