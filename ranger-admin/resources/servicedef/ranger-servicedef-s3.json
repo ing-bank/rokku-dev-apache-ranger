@@ -65,7 +65,7 @@
         "mandatory": true,
         "validationRegEx": "",
         "validationMessage": "",
-        "uiHint": "Point to path /admin",
+        "uiHint": "",
         "label": "S3 Endpoint"
       },
       {
