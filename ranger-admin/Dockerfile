@@ -1,5 +1,5 @@
 
-FROM maven:3.5.3-jdk-8
+FROM maven:3.5.4-jdk-8
 #FROM openjdk:8u121-jdk
 
 ARG RANGER_VERSION=1.1.0
@@ -8,20 +8,25 @@ RUN curl https://jdbc.postgresql.org/download/postgresql-42.2.1.jar -o /opt/post
     curl http://mirrors.whoishostingthis.com/apache/ranger/${RANGER_VERSION}/apache-ranger-${RANGER_VERSION}.tar.gz -o /opt/apache-ranger-${RANGER_VERSION}.tar.gz
 
 COPY ranger-entrypoint.sh /opt
+COPY pom.xml /opt
 
 WORKDIR /opt
 
 # TODO: Tried to do some cleanup here, but that removes some necessary plugins
 RUN apt-get -q update && apt-get install -y -q python gcc \
+ && apt-get autoclean \
  && tar zxvf apache-ranger-${RANGER_VERSION}.tar.gz \
  && rm -f apache-ranger-${RANGER_VERSION}.tar.gz \
+ && cp pom.xml apache-ranger-${RANGER_VERSION} \
+ && rm pom.xml \
  && cd apache-ranger-${RANGER_VERSION} \
- && mvn package assembly:assembly -DskipTests \
+ && mvn -e package assembly:assembly -DskipTests \
  && cp target/ranger-${RANGER_VERSION}-admin.tar.gz /opt \
 #  && mvn clean \
  && cd /opt \
  && tar zxvf ranger-${RANGER_VERSION}-admin.tar.gz \
  && rm -f ranger-${RANGER_VERSION}-admin.tar.gz \
+ && rm -rf apache-ranger-${RANGER_VERSION} \
  && chmod +x /opt/ranger-entrypoint.sh
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
