@@ -1,4 +1,3 @@
-
 FROM maven:3.5.4-jdk-8
 #FROM openjdk:8u121-jdk
 
@@ -20,9 +19,9 @@ RUN apt-get -q update && apt-get install -y -q python gcc \
  && cp pom.xml apache-ranger-${RANGER_VERSION} \
  && rm pom.xml \
  && cd apache-ranger-${RANGER_VERSION} \
- && mvn -e package assembly:assembly -DskipTests \
+ && mvn package assembly:assembly -DskipTests \
  && cp target/ranger-${RANGER_VERSION}-admin.tar.gz /opt \
-#  && mvn clean \
+# && mvn clean \
  && cd /opt \
  && tar zxvf ranger-${RANGER_VERSION}-admin.tar.gz \
  && rm -f ranger-${RANGER_VERSION}-admin.tar.gz \
