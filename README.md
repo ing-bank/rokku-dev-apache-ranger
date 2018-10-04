@@ -1,16 +1,16 @@
-[![Build Status](https://travis-ci.org/nielsdenissen/ranger-for-gargoyle.svg?branch=master)](https://travis-ci.org/nielsdenissen/ranger-for-gargoyle)
+[![Build Status](https://travis-ci.org/ing-bank/airlock-test-apache-ranger.svg?branch=master)](https://travis-ci.org/ing-bank/airlock-test-apache-ranger)
 [![](https://images.microbadger.com/badges/image/nielsdenissen/ranger-admin:master.svg)](https://microbadger.com/images/nielsdenissen/ranger-admin:master)(ranger-admin)
 [![](https://images.microbadger.com/badges/image/nielsdenissen/ranger-postgres:master.svg)](https://microbadger.com/images/nielsdenissen/ranger-postgres:master)(ranger-postgres)
 
 
-# Ranger for Gargoyle
+# Airlock Test - Apache Ranger
 
 *Based off the following GitHub repo: https://github.com/coheigea/testcases/tree/master/apache/docker/ranger*
 
 This is a project for **TESTING** purposes. Currently the changes made to the default images listed above are:
 - Add Ranger s3 plugin (see dependencies below)
 - Add service definition/service/policy at runtime for s3
-- Set logging of ranger service to debug (you can find the logs in the container here: `/opt/ranger-1.0.0-admin/ews/logs/ranger-admin-*-.log`)
+- Set logging of ranger service to debug (you can find the logs in the container here: `/opt/ranger-1.1.0-admin/ews/logs/ranger-admin-*-.log`)
 
 Possible commands for Ranger API: https://www.mail-archive.com/user@ranger.incubator.apache.org/msg00064.html
 
@@ -21,7 +21,7 @@ Possible commands for Ranger API: https://www.mail-archive.com/user@ranger.incub
 
 ## Dependencies
 
-- s3 plugin for Ranger: https://github.com/bolkedebruin/rangers3plugin.git
+- s3 plugin for Ranger: https://github.com/ing-bank/apache-ranger-s3-plugin
 
 ## TODO
 
