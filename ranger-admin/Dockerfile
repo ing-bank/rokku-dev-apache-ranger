@@ -36,14 +36,14 @@ COPY install.properties ${RANGER_HOME}
 # Additions by DAP team to enable adding S3 policies
 RUN apt-get install -y net-tools && \
     cd /tmp && \
-    git clone https://github.com/bolkedebruin/rangers3plugin.git && \
-    cd rangers3plugin && \
+    git clone https://github.com/ing-bank/apache-ranger-s3-plugin.git && \
+    cd apache-ranger-s3-plugin && \
     mvn package -DskipTests && \
     mkdir -p ${RANGER_HOME}/ews/webapp/WEB-INF/classes/ranger-plugins/s3/ && \
-    mv /tmp/rangers3plugin/target/ranger-s3-plugin-1.0-SNAPSHOT.jar ${RANGER_HOME}/ews/webapp/WEB-INF/classes/ranger-plugins/s3/ && \
+    mv /tmp/apache-ranger-s3-plugin/target/ranger-s3-plugin-0.1.jar ${RANGER_HOME}/ews/webapp/WEB-INF/classes/ranger-plugins/s3/ && \
     mvn clean && \
     cd /root && \
-    rm -rf /tmp/rangers3plugin
+    rm -rf /tmp/apache-ranger-s3-plugin
 
 COPY resources /tmp/resources
 COPY setup-ranger.sh /tmp
