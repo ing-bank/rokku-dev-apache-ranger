@@ -1,19 +1,19 @@
 version: "2"
 services:
 
-  postgres-server:
-    build: ./ranger-postgres
-    image: nielsdenissen/ranger-postgres
+  airlock-dev-apache-ranger-postgres:
+    build: ./airlock-dev-apache-ranger-postgres
+    image: nielsdenissen/airlock-dev-apache-ranger-postgres
     ports:
       - "5432:5432"
   
-  ranger-admin:
-    build: ./ranger-admin
-    image: nielsdenissen/ranger-admin
+  airlock-dev-apache-ranger:
+    build: ./airlock-dev-apache-ranger
+    image: nielsdenissen/airlock-dev-apache-ranger
     stdin_open: true
     tty: true
     depends_on:
-      - "postgres-server"
+      - "airlock-dev-apache-ranger-postgres"
       - "ceph"
     ports:
       - "6080:6080"
