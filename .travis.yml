@@ -5,16 +5,26 @@ services:
 
 env:
   matrix:
-  - BUILDFOLDER=ranger-admin
-  - BUILDFOLDER=ranger-postgres
+  - BUILDFOLDER=airlock-dev-apache-ranger
+  - BUILDFOLDER=airlock-dev-apache-ranger-postgres
   global:
-  - secure: xWyFXNbFpe2fVCN2JcoXScp1jUmWEs02oHa+MS3AVrgj8MDHiiz+rN1mTsWnMQQLoFtGOXIC4CcpdS0VVK/diCzdt2+fKTpOqwM+xgZSVU7DrJkNE5uc/ZKh+2fy5pwpvAvZS632MN7Xvha1eIreBRciiOXSLHQjpndVtz7lQWU6nU0XrK7i53I0jt5fZbTdSGptWoap0vYrhWg+x1PVCZQGLY7TVKKMlXezlBxD0eubwQBYOh3IRtfRMA5u6OOWyHoqwuiEjXIcPWeehGpDHD5itktD3ajqf8+hIT3tE+EYVb4l45z8RPxk/j/PEOdqcATbTp7fGzIQpNUr/iddiCEllr29NnkwybRPKWzxWc+xPmCPIuDu1r1SNkwrAPID3m6KFImZTunwGO7NtPtvTF43pvqm3yI3SyUpM0Y8w0K65jzR9h+99JUt5blvjAnya3h4ES+jw5JUOl0KrotrhJ3MHihpIMuKMdvvW1yLOgESF6t94CjOTVtv970vPu58rFbMyTgQVqoTrizwSD0OecuRbA0kV7ycH4vzYChZiEhInz60gnDNkNTfjv59TEON9XzYRYMFDpAC3hKPRDkFnmnHjJg7QT8HdU5c+w+QNpv2gK1gLgyRC2CGy2S8hx4fuy8+4nmLRFGJ1tr8Zq3Avjw7fyIgI4jVm2WekhH42sQ=
-  - secure: nERQorFRhv/79GLDQcBel17pWY/lvbkbkA1irU+/B+zQBe4BtPLdAe3eclE5zeHmeBYU8tHYFiIprA2UG/R1OqnoL4toLMt8/Z2N98gbD3Ie8PEeeEWcu6e4PQqJieHgPNfE8hRJw4heM07Tsvc+xBnv0uuWS9m65OP2DLuizg2t4dsQ+Vhq2Gk8jQqfAQOtfZU7Xq8H3X4OoJuH1dREqVQJjlEm4Ez1trh5tYk/x0j6ehPa5q6LjFqpKLsXXS3Lj0/JehsZYB0pHIy9D8hm58yGm5fBoZ/RBRfOSo/wZt2IkFjZafBho5J4F5jjdT1HuC28rvxKJ7NOeFqCQJfj9FypRnIuzoASplUiCnvzqJbMwlRofBX/nF5ftxVkNfqCZisNu15j1v24Qcg9hqYm2dw1qmg8uGgL3wtZGaHM0AHIP/bP9B1xQPE3PM+xZ7hzYhOyJ/kKADlaAmk65WOr1+tCcM/owixHAImVhZOm3cnGvjlAzWYWTmzU18nfoxTa49DZv0KpcSXWDR8XrYZFN6s3hhmy77EOAtt0CUG+NO3CIPLNMq0afuKj56wQz/blBkwVayTo7Mf/fLZJRjWRCl9dmHPSZofQyrI2aqg9q/O14GsDx5rcrnmDRglLeOUQ1UFDapMV7NmZeUX0j4pI0EBUWtZ8iW5UOrmhR7i2pDg=
+  - secure: bhqueuQFwquxAQS4vgWeE9aQTZhEQ22wJZYpMwJgBJcOe1GyJ004MVLwycm43H6GyQeeldPeOSflDCCfyDvf6s0oItk3w5/eKvuG8Zp7Bo7nkf3x23TuZTABU2HQ9KRIyLMertwYT85ugm9X4/rBjKsR3NzkccOanhxjDTYpv0nGmtRhQ3Ykdpls1cgVl5bw2k05oq2GZw1JjYL8qUiq8TfHNmGps108E114m++dPX0dK4dNiJqyQRrMkNElcqddRI6Lbbgk5dk0woJi8+x3jdpRnhI3mOtcT5LiTMNJnplU6U3j9p3daMvC5QfCm7CRytpI1zP1V+3C40ssAGn5bmPAxY/x8AldLWmTdz3x1g+dcnGZ78cJS2SzhxKInl5xL8t2ap4pjDJSM/AHYgkgs1Wzm8YKpL8DAEtAKGjTQn/YDyTGQDT75IweYNqXfP1KHVFk9OJntFEXVci+TYTXElwMmAkGzTzsYLGyohHoY7ICHb7l36b9C4iBTOMJrdurRnCplrPbvAbJOCM0CGnGymULkR90q485K3l/Anh9BSU6tVawpaK8tZYsiq+k8VLoZ9hjzRa8NsTcgiwGHDGDG9xWSn8D3v6xTJIL9/1UbwSZ8pdWSrnn7SFUtSOkhMESlw+FVv4MGw55zZE9XTjflV3got/RBvLOhqZ3UNHOO1w=
+  - secure: NugiY1qRBu2PdKEbmux70Id0kVUpJaI4f0u/m1b4gDrDod5gKuo67op4yaPg4xADoHVyL0Vq68aB6jUxs+cWWguKxjzEkWUHj9i1eO3a0h1X31MzC+zOK49I//gLKUkHNtdYRrkPcY0sUdBebakWegKMB33v6eRvnPyhgijChUdDAU5nYKk399wXWUvQeunzTkJsq0rmBcXQ9CFKjADYWP+cSkMZYaoM7u2LnfxbwhksPRDdHcTNrk8e9hQdTBjzN+AQJAQhJZT2Ct2aRqazHDjAgTOvJ8BFPcl0pcLOLVza9WKf9sSuP8TWoyDTqI9s7F0PPT+1jX/1MHskaFg0H0F1LKv9LR2JSK4mlMR9een5J7gNob+G0H0+PQuWzeZmbWUpoEJGMo+aKGx92DOP2NeLYTsPct/1mN/Vi8fJHA+pDRZcIg4EYhfcNCVMgfSDP68iBb6ck1k7DNdxi2hTgjhkTrZC85wxFeezKCOlRH3gk5dpH42zSOLTkhKbmRwqf7Tm5ObEdmgVDh7DTBUX2F7YlWEzDFIO1sdfUBAKp1vTDiX5wHRilxV8JKVsrhFtDXsAaKFsQ99MB+OE9eNmokSNb9o9DjfN5hN8U821+LnvmODtBXhkxMyUXe5YKEEDmwWeZoOP0B+WruRQRMoHfNZ5ZvV8RpO5f++5CQSPPQ0=
 
+# We will not build an image on the master tag, thereby forcing people to use tagged versions only
+# Also there is an issue with using TRAVIS_BRANCH for PRs since this variable will be set to the target of the PR (e.g. master for PR to master) and then build an image for master unwanted before the merge happened
 script:
+- echo "Running pipeline for branch ${TRAVIS_BRANCH}"
 - cd $BUILDFOLDER
+- export DOCKER_TAG="${TRAVIS_BRANCH/\//_}"
 - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-- docker pull nielsdenissen/$BUILDFOLDER:latest;
-  travis_wait 60 docker build --quiet -t nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH .;
-  docker push nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH;
-  if [ "${TRAVIS_BRANCH}" == "master" ]; then docker tag nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH nielsdenissen/$BUILDFOLDER:latest; docker push nielsdenissen/$BUILDFOLDER:latest; fi
+- if [ "${TRAVIS_BRANCH}" != "master" ]; then 
+    echo "Build image for tag ${DOCKER_TAG}";
+    docker pull nielsdenissen/$BUILDFOLDER:latest;
+    travis_wait 60 docker build --quiet -t nielsdenissen/$BUILDFOLDER:$DOCKER_TAG .;
+    docker push nielsdenissen/$BUILDFOLDER:$DOCKER_TAG;
+  fi
+- if [ -n "$TRAVIS_TAG" ]; then 
+    docker tag nielsdenissen/$BUILDFOLDER:$DOCKER_TAG nielsdenissen/$BUILDFOLDER:latest;
+    docker push nielsdenissen/$BUILDFOLDER:latest;
+  fi
