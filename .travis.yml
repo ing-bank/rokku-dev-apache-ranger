@@ -11,6 +11,8 @@ env:
   - secure: bhqueuQFwquxAQS4vgWeE9aQTZhEQ22wJZYpMwJgBJcOe1GyJ004MVLwycm43H6GyQeeldPeOSflDCCfyDvf6s0oItk3w5/eKvuG8Zp7Bo7nkf3x23TuZTABU2HQ9KRIyLMertwYT85ugm9X4/rBjKsR3NzkccOanhxjDTYpv0nGmtRhQ3Ykdpls1cgVl5bw2k05oq2GZw1JjYL8qUiq8TfHNmGps108E114m++dPX0dK4dNiJqyQRrMkNElcqddRI6Lbbgk5dk0woJi8+x3jdpRnhI3mOtcT5LiTMNJnplU6U3j9p3daMvC5QfCm7CRytpI1zP1V+3C40ssAGn5bmPAxY/x8AldLWmTdz3x1g+dcnGZ78cJS2SzhxKInl5xL8t2ap4pjDJSM/AHYgkgs1Wzm8YKpL8DAEtAKGjTQn/YDyTGQDT75IweYNqXfP1KHVFk9OJntFEXVci+TYTXElwMmAkGzTzsYLGyohHoY7ICHb7l36b9C4iBTOMJrdurRnCplrPbvAbJOCM0CGnGymULkR90q485K3l/Anh9BSU6tVawpaK8tZYsiq+k8VLoZ9hjzRa8NsTcgiwGHDGDG9xWSn8D3v6xTJIL9/1UbwSZ8pdWSrnn7SFUtSOkhMESlw+FVv4MGw55zZE9XTjflV3got/RBvLOhqZ3UNHOO1w=
   - secure: NugiY1qRBu2PdKEbmux70Id0kVUpJaI4f0u/m1b4gDrDod5gKuo67op4yaPg4xADoHVyL0Vq68aB6jUxs+cWWguKxjzEkWUHj9i1eO3a0h1X31MzC+zOK49I//gLKUkHNtdYRrkPcY0sUdBebakWegKMB33v6eRvnPyhgijChUdDAU5nYKk399wXWUvQeunzTkJsq0rmBcXQ9CFKjADYWP+cSkMZYaoM7u2LnfxbwhksPRDdHcTNrk8e9hQdTBjzN+AQJAQhJZT2Ct2aRqazHDjAgTOvJ8BFPcl0pcLOLVza9WKf9sSuP8TWoyDTqI9s7F0PPT+1jX/1MHskaFg0H0F1LKv9LR2JSK4mlMR9een5J7gNob+G0H0+PQuWzeZmbWUpoEJGMo+aKGx92DOP2NeLYTsPct/1mN/Vi8fJHA+pDRZcIg4EYhfcNCVMgfSDP68iBb6ck1k7DNdxi2hTgjhkTrZC85wxFeezKCOlRH3gk5dpH42zSOLTkhKbmRwqf7Tm5ObEdmgVDh7DTBUX2F7YlWEzDFIO1sdfUBAKp1vTDiX5wHRilxV8JKVsrhFtDXsAaKFsQ99MB+OE9eNmokSNb9o9DjfN5hN8U821+LnvmODtBXhkxMyUXe5YKEEDmwWeZoOP0B+WruRQRMoHfNZ5ZvV8RpO5f++5CQSPPQ0=
 
+# We will not build an image on the master tag, thereby forcing people to use tagged versions only
+# Also there is an issue with using TRAVIS_BRANCH for PRs since this variable will be set to the target of the PR (e.g. master for PR to master) and then build an image for master unwanted before the merge happened
 script:
 - cd $BUILDFOLDER
 - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
@@ -18,4 +20,8 @@ script:
     docker pull nielsdenissen/$BUILDFOLDER:latest;
     travis_wait 60 docker build --quiet -t nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH .;
     docker push nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH;
+  fi
+- if [ -n "$TRAVIS_TAG" ]; then 
+    docker tag nielsdenissen/$BUILDFOLDER:$TRAVIS_BRANCH nielsdenissen/$BUILDFOLDER:latest;
+    docker push nielsdenissen/$BUILDFOLDER:latest;
   fi

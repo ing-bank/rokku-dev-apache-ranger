@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/ing-bank/airlock-test-apache-ranger.svg?branch=master)](https://travis-ci.org/ing-bank/airlock-test-apache-ranger)
-[![](https://images.microbadger.com/badges/image/nielsdenissen/ranger-admin:master.svg)](https://microbadger.com/images/nielsdenissen/ranger-admin:master)(ranger-admin)
-[![](https://images.microbadger.com/badges/image/nielsdenissen/ranger-postgres:master.svg)](https://microbadger.com/images/nielsdenissen/ranger-postgres:master)(ranger-postgres)
+[![Build Status](https://travis-ci.org/ing-bank/airlock-dev-apache-ranger.svg?branch=master)](https://travis-ci.org/ing-bank/airlock-dev-apache-ranger)
+[![](https://images.microbadger.com/badges/image/nielsdenissen/airlock-dev-apache-ranger:latest.svg)](https://microbadger.com/images/nielsdenissen/airlock-dev-apache-ranger:latest)
+[![](https://images.microbadger.com/badges/image/nielsdenissen/airlock-dev-apache-ranger-postgres:latest.svg)](https://microbadger.com/images/nielsdenissen/airlock-dev-apache-ranger-postgres:latest)
 
 
-# Airlock Test - Apache Ranger
+# Airlock Dev - Apache Ranger
 
 *Based off the following GitHub repo: https://github.com/coheigea/testcases/tree/master/apache/docker/ranger*
 
