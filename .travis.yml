@@ -14,10 +14,12 @@ env:
 # We will not build an image on the master tag, thereby forcing people to use tagged versions only
 # Also there is an issue with using TRAVIS_BRANCH for PRs since this variable will be set to the target of the PR (e.g. master for PR to master) and then build an image for master unwanted before the merge happened
 script:
+- echo "Running pipeline for branch ${TRAVIS_BRANCH}"
 - cd $BUILDFOLDER
 - export DOCKER_TAG="${TRAVIS_BRANCH/\//_}"
 - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 - if [ "${TRAVIS_BRANCH}" != "master" ]; then 
+    echo "Build image for tag ${DOCKER_TAG}";
     docker pull nielsdenissen/$BUILDFOLDER:latest;
     travis_wait 60 docker build --quiet -t nielsdenissen/$BUILDFOLDER:$DOCKER_TAG .;
     docker push nielsdenissen/$BUILDFOLDER:$DOCKER_TAG;
