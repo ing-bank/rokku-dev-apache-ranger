@@ -106,7 +106,7 @@
         "name": "cidr",
         "label": "IP address within cidr range?",
         "description": "Ip address within cidr range?",
-        "evaluator": "com.ing.ranger.conditions.IpMatcher",
+        "evaluator": "com.ing.wbaa.ranger.plugin.conditionevaluator.IpCidrMatcher",
         "evaluatorOptions": {}
       }
     ]
