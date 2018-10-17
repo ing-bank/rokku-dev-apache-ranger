@@ -26,7 +26,14 @@
       "groups": [
         "testgroup"
       ],
-      "conditions": [],
+      "conditions": [
+        {
+          "type": "cidr",
+          "values": [
+            "*"
+          ]
+        }
+      ],
       "delegateAdmin": false
     }
   ],
@@ -45,6 +52,27 @@
         "testgroup"
       ],
       "conditions": [],
+      "delegateAdmin": false
+    },
+    {
+      "accesses": [
+        {
+          "type": "read",
+          "isAllowed": true
+        }
+      ],
+      "users": [
+        "testuser"
+      ],
+      "groups": [],
+      "conditions": [
+        {
+          "type": "cidr",
+          "values": [
+            "1.2.3.4/32"
+          ]
+        }
+      ],
       "delegateAdmin": false
     }
   ],
