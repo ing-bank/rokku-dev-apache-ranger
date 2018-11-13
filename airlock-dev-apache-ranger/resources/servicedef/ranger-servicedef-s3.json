@@ -103,17 +103,17 @@
     [
       {
         "itemId": 1,
-        "name": "cidrAllIPs",
-        "label": "All IP addresses within cidr range?",
-        "description": "All IP addresses within cidr range?",
+        "name": "cidrAllUserIPs",
+        "label": "All user IP addresses within any cidr range?",
+        "description": "All user IP addresses within any cidr range?",
         "evaluator": "com.ing.wbaa.ranger.plugin.conditionevaluator.AllIpCidrMatcher",
         "evaluatorOptions": {}
       },
       {
         "itemId": 2,
-        "name": "cidrAnyIPs",
-        "label": "Any IP address within cidr range?",
-        "description": "Any IP address within cidr range?",
+        "name": "cidrAnyUserIPs",
+        "label": "Any user IP address within any cidr range?",
+        "description": "Any user IP address within any cidr range?",
         "evaluator": "com.ing.wbaa.ranger.plugin.conditionevaluator.AnyIpCidrMatcher",
         "evaluatorOptions": {}
       }
