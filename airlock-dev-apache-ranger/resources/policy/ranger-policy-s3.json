@@ -28,7 +28,7 @@
       ],
       "conditions": [
         {
-          "type": "cidr",
+          "type": "cidrAllUserIPs",
           "values": [
             "*"
           ]
@@ -67,7 +67,7 @@
       "groups": [],
       "conditions": [
         {
-          "type": "cidr",
+          "type": "cidrAnyUserIPs",
           "values": [
             "1.2.3.4/32"
           ]
