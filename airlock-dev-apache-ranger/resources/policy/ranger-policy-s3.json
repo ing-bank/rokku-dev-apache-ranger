@@ -6,7 +6,7 @@
   "resources": {
     "path": {
       "values": [
-        "demobucket"
+        "/demobucket"
       ],
       "isExcludes": false,
       "isRecursive": true
