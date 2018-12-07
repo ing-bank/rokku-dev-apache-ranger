@@ -2,7 +2,7 @@ FROM maven:3.5.4-jdk-8
 #FROM openjdk:8u121-jdk
 
 ARG RANGER_VERSION=1.1.0
-ARG RANGER_S3_PLUGIN_VERSION=0.0.2
+ARG RANGER_S3_PLUGIN_VERSION=0.0.1
 
 RUN curl https://jdbc.postgresql.org/download/postgresql-42.2.1.jar -o /opt/postgresql-42.2.1.jar && \
     curl http://mirrors.whoishostingthis.com/apache/ranger/${RANGER_VERSION}/apache-ranger-${RANGER_VERSION}.tar.gz -o /opt/apache-ranger-${RANGER_VERSION}.tar.gz
