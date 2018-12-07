@@ -5,8 +5,7 @@
     "name": "testservice",
     "description": "FOR TESTING PURPOSES, test service",
     "configs": {
-        "uid": "ceph-admin",
-        "endpoint": "http://ceph:8010/admin",
+        "endpoint": "http://ceph:8010",
         "secretkey": "secretkey",
         "accesskey": "accesskey"
     }
