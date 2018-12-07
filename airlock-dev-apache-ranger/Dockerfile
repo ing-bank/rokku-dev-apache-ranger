@@ -15,16 +15,16 @@ WORKDIR /opt
 # TODO: Tried to do some cleanup here, but that removes some necessary plugins
 RUN apt-get -q update && apt-get install -y -q python gcc \
  && apt-get autoclean \
- && tar zxvf apache-ranger-${RANGER_VERSION}.tar.gz \
+ && tar zxf apache-ranger-${RANGER_VERSION}.tar.gz \
  && rm -f apache-ranger-${RANGER_VERSION}.tar.gz \
  && cp pom.xml apache-ranger-${RANGER_VERSION} \
  && rm pom.xml \
  && cd apache-ranger-${RANGER_VERSION} \
- && mvn package assembly:assembly -DskipTests \
+ && mvn -q package assembly:assembly -DskipTests \
  && cp target/ranger-${RANGER_VERSION}-admin.tar.gz /opt \
 # && mvn clean \
  && cd /opt \
- && tar zxvf ranger-${RANGER_VERSION}-admin.tar.gz \
+ && tar zxf ranger-${RANGER_VERSION}-admin.tar.gz \
  && rm -f ranger-${RANGER_VERSION}-admin.tar.gz \
  && rm -rf apache-ranger-${RANGER_VERSION} \
  && chmod +x /opt/ranger-entrypoint.sh
