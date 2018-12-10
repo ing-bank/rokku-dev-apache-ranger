@@ -37,28 +37,12 @@
         "itemId": 2,
         "name": "write",
         "label": "write"
-      },
-      {
-        "itemId": 3,
-        "name": "full_control",
-        "label": "Full control over bucket"
       }
     ],
     "configs":
     [
       {
         "itemId": 1,
-        "name": "uid",
-        "type": "string",
-        "subType": "",
-        "mandatory": true,
-        "validationRegEx": "",
-        "validationMessage": "",
-        "uiHint":"",
-        "label": "Admin user id"
-      },
-      {
-        "itemId": 2,
         "name": "endpoint",
         "type": "string",
         "subType": "",
@@ -69,7 +53,7 @@
         "label": "S3 Endpoint"
       },
       {
-        "itemId": 3,
+        "itemId": 2,
         "name": "accesskey",
         "type": "string",
         "subType": "",
@@ -80,7 +64,7 @@
         "label": "Access key"
       },
       {
-        "itemId": 4,
+        "itemId": 3,
         "name": "secretkey",
         "type": "password",
         "subType": "",
