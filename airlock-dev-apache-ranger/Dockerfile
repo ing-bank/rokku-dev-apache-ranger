@@ -40,7 +40,6 @@ RUN apt-get install -y net-tools && \
     git clone https://github.com/ing-bank/apache-ranger-s3-plugin.git && \
     cd apache-ranger-s3-plugin && \
     git checkout tags/${RANGER_S3_PLUGIN_VERSION} && \
-    git checkout support-fqp-search && \
     mvn package -DskipTests && \
     mkdir -p ${RANGER_HOME}/ews/webapp/WEB-INF/classes/ranger-plugins/s3/ && \
     mv /tmp/apache-ranger-s3-plugin/target/ranger-s3-plugin-0.2.jar ${RANGER_HOME}/ews/webapp/WEB-INF/classes/ranger-plugins/s3/ && \
