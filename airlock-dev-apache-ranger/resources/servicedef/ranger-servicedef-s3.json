@@ -37,11 +37,6 @@
         "itemId": 2,
         "name": "write",
         "label": "write"
-      },
-      {
-        "itemId": 3,
-        "name": "full_control",
-        "label": "Full control over bucket"
       }
     ],
     "configs":
