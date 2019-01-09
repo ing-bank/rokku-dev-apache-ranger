@@ -6,7 +6,7 @@
     "description": "FOR TESTING PURPOSES, test service",
     "configs": {
         "endpoint": "http://ceph:8010",
-        "secretkey": "secretkey",
+        "password": "secretkey",
         "accesskey": "accesskey"
     }
 }
