@@ -65,7 +65,7 @@
       },
       {
         "itemId": 3,
-        "name": "secretkey",
+        "name": "password",
         "type": "password",
         "subType": "",
         "mandatory": true,
