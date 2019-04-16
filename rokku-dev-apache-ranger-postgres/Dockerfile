@@ -1,4 +1,3 @@
-
 FROM postgres:10.3
 
 LABEL maintainer-twitter="@coheigea"
