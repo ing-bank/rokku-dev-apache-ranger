@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/ing-bank/airlock-dev-apache-ranger.svg?branch=master)](https://travis-ci.org/ing-bank/airlock-dev-apache-ranger)
-[![](https://images.microbadger.com/badges/image/wbaa/airlock-dev-apache-ranger:latest.svg)](https://microbadger.com/images/wbaa/airlock-dev-apache-ranger:latest)
-[![](https://images.microbadger.com/badges/image/wbaa/airlock-dev-apache-ranger-postgres:latest.svg)](https://microbadger.com/images/wbaa/airlock-dev-apache-ranger-postgres:latest)
+[![Build Status](https://travis-ci.org/ing-bank/rokku-dev-apache-ranger.svg?branch=master)](https://travis-ci.org/ing-bank/rokku-dev-apache-ranger)
+[![](https://images.microbadger.com/badges/image/wbaa/rokku-dev-apache-ranger:latest.svg)](https://microbadger.com/images/wbaa/rokku-dev-apache-ranger:latest)
+[![](https://images.microbadger.com/badges/image/wbaa/rokku-dev-apache-ranger-postgres:latest.svg)](https://microbadger.com/images/wbaa/rokku-dev-apache-ranger-postgres:latest)
 
 
-# Airlock Dev - Apache Ranger
+# Rokku Dev - Apache Ranger
 
 *Based off the following GitHub repo: https://github.com/coheigea/testcases/tree/master/apache/docker/ranger*
 

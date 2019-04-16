@@ -1,19 +1,19 @@
 version: "2"
 services:
 
-  airlock-dev-apache-ranger-postgres:
-    build: ./airlock-dev-apache-ranger-postgres
-    image: wbaa/airlock-dev-apache-ranger-postgres
+  rokku-dev-apache-ranger-postgres:
+    build: ./rokku-dev-apache-ranger-postgres
+    image: wbaa/rokku-dev-apache-ranger-postgres
     ports:
       - "5432:5432"
   
-  airlock-dev-apache-ranger:
-    build: ./airlock-dev-apache-ranger
-    image: wbaa/airlock-dev-apache-ranger
+  rokku-dev-apache-ranger:
+    build: ./rokku-dev-apache-ranger
+    image: wbaa/rokku-dev-apache-ranger
     stdin_open: true
     tty: true
     depends_on:
-      - "airlock-dev-apache-ranger-postgres"
+      - "rokku-dev-apache-ranger-postgres"
       - "ceph"
     ports:
       - "6080:6080"
