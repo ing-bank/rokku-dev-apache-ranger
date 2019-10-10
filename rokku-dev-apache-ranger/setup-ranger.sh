@@ -21,6 +21,7 @@ if [ "$start_timeout_exceeded" = "false" ]; then
     # Setup ranger users/groups
     printf "Creating user and group definition... \n"
     curl -u admin:admin -d "@/tmp/resources/user-group/testgroup.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/xusers/secure/groups
+    curl -u admin:admin -d "@/tmp/resources/user-group/testrole.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/xusers/secure/groups
     curl -u admin:admin -d "@/tmp/resources/user-group/testuser.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/xusers/secure/users
     printf "\nUser and group created\n"
 
