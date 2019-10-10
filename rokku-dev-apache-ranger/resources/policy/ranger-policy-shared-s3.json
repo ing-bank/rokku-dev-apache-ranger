@@ -29,7 +29,7 @@
       "users": [
         "{USER}"
       ],
-      "groups": [],
+      "groups": [ "role_test" ],
       "conditions": [],
       "delegateAdmin": false
     }
