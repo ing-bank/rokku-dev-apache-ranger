@@ -42,6 +42,7 @@ if [ "$start_timeout_exceeded" = "false" ]; then
     curl -u admin:admin -d "@/tmp/resources/policy/ranger-policy-homedirs-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/policy
     curl -u admin:admin -d "@/tmp/resources/policy/ranger-policy-home-read-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/policy
     curl -u admin:admin -d "@/tmp/resources/policy/ranger-policy-shared-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/policy
+	curl -u admin:admin -d "@/tmp/resources/policy/ranger-policy-bucket-create-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/policy
     printf "\nPolicy created\n"
 
     echo "Done setting up Ranger for s3"
