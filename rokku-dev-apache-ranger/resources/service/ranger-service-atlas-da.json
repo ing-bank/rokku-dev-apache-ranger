@@ -1,0 +1,12 @@
+  {
+    "isEnabled": true,
+    "version": 1,
+    "type": "atlas",
+    "name": "atlas-da",
+    "description": "FOR TESTING PURPOSES, test service",
+    "configs": {
+      "atlas.rest.address": "http://atlas_host:21000",
+      "password": "*****",
+      "username": "admin"
+    }
+  }
