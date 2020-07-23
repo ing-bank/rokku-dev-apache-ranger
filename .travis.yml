@@ -16,15 +16,13 @@ env:
 script:
 - echo "Running pipeline for branch ${TRAVIS_BRANCH}"
 - cd $BUILDFOLDER
-- export DOCKER_TAG="${TRAVIS_BRANCH/\//_}"
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- if [ "${TRAVIS_BRANCH}" != "master" ]; then 
+- if [ -n "$TRAVIS_TAG" ]; then 
+    export DOCKER_TAG="${TRAVIS_BRANCH/\//_}"
+    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     echo "Build image for tag ${DOCKER_TAG}";
     docker pull wbaa/$BUILDFOLDER:latest;
     travis_wait 60 docker build --quiet -t wbaa/$BUILDFOLDER:$DOCKER_TAG .;
     docker push wbaa/$BUILDFOLDER:$DOCKER_TAG;
-  fi
-- if [ -n "$TRAVIS_TAG" ]; then 
     docker tag wbaa/$BUILDFOLDER:$DOCKER_TAG wbaa/$BUILDFOLDER:latest;
     docker push wbaa/$BUILDFOLDER:latest;
   fi
