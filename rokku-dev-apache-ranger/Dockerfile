@@ -35,7 +35,7 @@ ENV RANGER_HOME=/opt/ranger-${RANGER_VERSION}-admin
 COPY install.properties ${RANGER_HOME}
 
 # Additions by DAP team to enable adding S3 policies
-RUN apt-get install -y net-tools && \
+RUN apt-get install -y net-tools jq && \
     cd /tmp && \
     git clone https://github.com/ing-bank/apache-ranger-s3-plugin.git && \
     cd apache-ranger-s3-plugin && \

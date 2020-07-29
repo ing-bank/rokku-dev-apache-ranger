@@ -1,0 +1,92 @@
+ {
+      "service": "atlas-da",
+      "name": "all - entity-type, entity-classification, entity",
+      "policyType": 0,
+      "policyPriority": 0,
+      "description": "all - entity-type, entity-classification, entity",
+      "isAuditEnabled": true,
+      "resources": {
+        "entity-type": {
+          "values": [
+            "*"
+          ],
+          "isExcludes": false,
+          "isRecursive": false
+        },
+        "entity-classification": {
+          "values": [
+            "*"
+          ],
+          "isExcludes": false,
+          "isRecursive": false
+        },
+        "entity": {
+          "values": [
+            "*"
+          ],
+          "isExcludes": false,
+          "isRecursive": false
+        }
+      },
+      "policyItems": [
+        {
+          "accesses": [
+            {
+              "type": "entity-read",
+              "isAllowed": true
+            },
+            {
+              "type": "entity-create",
+              "isAllowed": true
+            },
+            {
+              "type": "entity-update",
+              "isAllowed": true
+            },
+            {
+              "type": "entity-delete",
+              "isAllowed": true
+            },
+            {
+              "type": "entity-add-classification",
+              "isAllowed": true
+            },
+            {
+              "type": "entity-update-classification",
+              "isAllowed": true
+            },
+            {
+              "type": "entity-remove-classification",
+              "isAllowed": true
+            }
+          ],
+          "users": [
+            "admin",
+            "admin"
+          ],
+          "groups": [],
+          "conditions": [],
+          "delegateAdmin": true
+        },
+        {
+            "groups": [
+                "atlasreadonly"
+            ],
+            "accesses": [
+                {
+                    "type": "entity-read",
+                    "isAllowed": true
+                }
+            ]
+        }
+      ],
+      "denyPolicyItems": [],
+      "allowExceptions": [],
+      "denyExceptions": [],
+      "dataMaskPolicyItems": [],
+      "rowFilterPolicyItems": [],
+      "options": {},
+      "validitySchedules": [],
+      "policyLabels": [],
+      "isEnabled": true
+    }

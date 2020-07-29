@@ -1,0 +1,16 @@
+{
+    "loginId": "atlasviewer",
+    "name": "atlasviewer",
+    "password": "password123",
+    "firstName": "firstname",
+    "lastName": "lastname",
+    "publicScreenName": "atlasviewer",
+    "userRoleList": [
+        "ROLE_USER"
+    ],
+    "groupIdList": [
+        "atlasrogroupid"
+    ],
+    "userPermList": [],
+    "groupPermissions": []
+}

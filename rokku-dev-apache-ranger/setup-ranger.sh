@@ -22,9 +22,16 @@ if [ "$start_timeout_exceeded" = "false" ]; then
     printf "Creating user and group definition... \n"
     curl -u admin:admin -d "@/tmp/resources/user-group/testgroup.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/xusers/secure/groups
     curl -u admin:admin -d "@/tmp/resources/user-group/testrole.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/xusers/secure/groups
+    curl -u admin:admin -d "@/tmp/resources/user-group/atlasreadonly.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/xusers/secure/groups
     curl -u admin:admin -d "@/tmp/resources/user-group/testuser.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/xusers/secure/users
     curl -u admin:admin -d "@/tmp/resources/user-group/rokkuadmin.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/xusers/secure/users
     printf "\nUser and group created\n"
+
+    printf "Creating Atlas readonlyuser... \n"
+    atlasreadonly_group=$(curl -u admin:admin  -X GET -H "Accept: application/json" http://localhost:6080/service/xusers/groups |  jq -c '.vXGroups[] | select( .name=="atlasreadonly" )  | .id ')
+    sed -i -e "s/atlasrogroupid/$atlasreadonly_group/g" /tmp/resources/user-group/atlasviewer.json
+    curl -u admin:admin -d "@/tmp/resources/user-group/atlasviewer.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/xusers/secure/users
+    printf "\nAtlas readonlyuser created \n"
 
     # Setup ranger servicedefs
     printf "Creating service definition... \n"
@@ -34,6 +41,7 @@ if [ "$start_timeout_exceeded" = "false" ]; then
     # Setup ranger services
     printf "Creating service... \n"
     curl -u admin:admin -d "@/tmp/resources/service/ranger-service-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/service
+    curl -u admin:admin -d "@/tmp/resources/service/ranger-service-atlas-da.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/service
     printf "\nService created\n"
 
     # Setup ranger policies
@@ -45,6 +53,12 @@ if [ "$start_timeout_exceeded" = "false" ]; then
     curl -u admin:admin -d "@/tmp/resources/policy/ranger-policy-shared-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/policy
     curl -u admin:admin -d "@/tmp/resources/policy/ranger-policy-bucket-create-s3.json" -X POST -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/policy
     printf "\nPolicy created\n"
+
+    printf "adjusting Atlas policy... \n"
+    policyid=$(curl -s -u admin:admin 'http://localhost:6080/service/plugins/policies/exportJson?serviceName=atlas-da&checkPoliciesExists=true' \
+    | jq -c '.policies[] | select( .name=="all - entity-type, entity-classification, entity" )  | .id ')
+    curl -u admin:admin -d "@/tmp/resources/policy/ranger-policy-readonly-atlas-da.json" -X PUT -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:6080/service/public/v2/api/policy/$policyid
+    printf "\nAtlas policy adjusted... \n"
 
     echo "Done setting up Ranger for s3"
 else
